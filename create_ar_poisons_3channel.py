@@ -105,16 +105,16 @@ def create_poison(args):
 
     # Data loading code
     if args.dataset == 'CIFAR10':
-        train_dataset = CIFAR10_w_indices(root=os.environ.get('CIFAR_PATH', '/vulcanscratch/psando/cifar-10/'), train=True, download=False, transform=transforms.ToTensor())
+        train_dataset = CIFAR10_w_indices(root=os.environ.get('CIFAR_PATH', '/nfshomes/awerner/cifar-10/'), train=True, download=True, transform=transforms.ToTensor())
         noise_size, noise_crop = (36, 36), 4
     elif args.dataset == 'CIFAR100':
-        train_dataset = CIFAR100_w_indices(root=os.environ.get('CIFAR_PATH', '/vulcanscratch/psando/cifar-10/'), train=True, download=False, transform=transforms.ToTensor())
+        train_dataset = CIFAR100_w_indices(root=os.environ.get('CIFAR_PATH', '/nfshomes/awerner/cifar-10/'), train=True, download=True, transform=transforms.ToTensor())
         noise_size, noise_crop = (36, 36), 4
     elif args.dataset == 'STL10':
-        train_dataset = STL10_w_indices(root=os.environ.get('STL_PATH', '/vulcanscratch/psando/STL/'), split='train', download=False, transform=transforms.ToTensor())
+        train_dataset = STL10_w_indices(root=os.environ.get('STL_PATH', '/nfshomes/awerner/STL/'), split='train', download=True, transform=transforms.ToTensor())
         noise_size, noise_crop = (100, 100), 4
     elif args.dataset == 'SVHN':
-        train_dataset = SVHN_w_indices(root=os.environ.get('SVHN_PATH', '/vulcanscratch/psando/SVHN/'), split='train', download=False, transform=transforms.ToTensor())
+        train_dataset = SVHN_w_indices(root=os.environ.get('SVHN_PATH', '/nfshomes/awerner/SVHN/'), split='train', download=True, transform=transforms.ToTensor())
         noise_size, noise_crop = (36, 36), 4
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=512, shuffle=False, num_workers=args.workers)
 

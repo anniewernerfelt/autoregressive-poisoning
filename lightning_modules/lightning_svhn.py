@@ -92,7 +92,7 @@ class LitSVHNModel(LightningModule):
             transforms.Normalize((0.43768218, 0.44376934, 0.47280428), (0.1980301, 0.2010157, 0.19703591)),
         ])
         transform_train = self.configure_transform(transform_train)
-        trainset = datasets.SVHN(root='/vulcanscratch/psando/SVHN', split='train', download=False, transform=transform_train)
+        trainset = datasets.SVHN(root='/nfshomes/awerner/SVHN', split='train', download=True, transform=transform_train)
         if self.adversarial_poison_path:
             trainset = AdversarialPoison(root=self.adversarial_poison_path, baseset=trainset)
         if self.unlearnable_poison_path:
@@ -106,7 +106,7 @@ class LitSVHNModel(LightningModule):
             transforms.ToTensor(),
             transforms.Normalize((0.43768218, 0.44376934, 0.47280428), (0.1980301, 0.2010157, 0.19703591)),
         ])
-        testset = datasets.SVHN(root='/vulcanscratch/psando/SVHN', split='test', download=False, transform=transform_test)
+        testset = datasets.SVHN(root='/nfshomes/awerner/SVHN', split='test', download=True, transform=transform_test)
         testloader = torch.utils.data.DataLoader(testset, batch_size=self.batch_size, shuffle=False, num_workers=self.num_workers)
         return testloader
 
@@ -115,7 +115,7 @@ class LitSVHNModel(LightningModule):
             transforms.ToTensor(),
             transforms.Normalize((0.43768218, 0.44376934, 0.47280428), (0.1980301, 0.2010157, 0.19703591)),
         ])
-        testset = datasets.SVHN(root='/vulcanscratch/psando/SVHN', split='test', download=False, transform=transform_test)
+        testset = datasets.SVHN(root='/nfshomes/awerner/SVHN', split='test', download=True, transform=transform_test)
         testloader = torch.utils.data.DataLoader(testset, batch_size=self.batch_size, shuffle=False, num_workers=self.num_workers)
         return testloader
 

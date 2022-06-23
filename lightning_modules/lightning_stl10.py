@@ -93,7 +93,7 @@ class LitSTLModel(LightningModule):
             transforms.Normalize((0.44671047,0.43981034,0.40664658), (0.26034108, 0.25657734, 0.27126735)),
         ])
         transform_train = self.configure_transform(transform_train)
-        trainset = datasets.STL10(root='/vulcanscratch/psando/STL', split='train', download=False, transform=transform_train)
+        trainset = datasets.STL10(root='/nfshomes/awerner/STL', split='train', download=True, transform=transform_train)
         if self.adversarial_poison_path:
             trainset = AdversarialPoison(root=self.adversarial_poison_path, baseset=trainset)
         if self.unlearnable_poison_path:
@@ -107,7 +107,7 @@ class LitSTLModel(LightningModule):
             transforms.ToTensor(),
             transforms.Normalize((0.44671047, 0.43981034, 0.40664658), (0.26034108, 0.25657734, 0.27126735)),
         ])
-        testset = datasets.STL10(root='/vulcanscratch/psando/STL', split='test', download=False, transform=transform_test)
+        testset = datasets.STL10(root='/nfshomes/awerner/STL', split='test', download=True, transform=transform_test)
         testloader = torch.utils.data.DataLoader(testset, batch_size=self.batch_size, shuffle=False, num_workers=self.num_workers)
         return testloader
 
@@ -116,7 +116,7 @@ class LitSTLModel(LightningModule):
             transforms.ToTensor(),
             transforms.Normalize((0.44671047, 0.43981034, 0.40664658), (0.26034108, 0.25657734, 0.27126735)),
         ])
-        testset = datasets.STL10(root='/vulcanscratch/psando/STL', split='test', download=False, transform=transform_test)
+        testset = datasets.STL10(root='/nfshomes/awerner/STL', split='test', download=True, transform=transform_test)
         testloader = torch.utils.data.DataLoader(testset, batch_size=self.batch_size, shuffle=False, num_workers=self.num_workers)
         return testloader
 

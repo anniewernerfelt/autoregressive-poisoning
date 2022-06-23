@@ -6,8 +6,8 @@ misc:
   enable_progress_bar: False
   enable_checkpointing: False                   # whether to save model checkpoints
   log_every_n_steps: 50
-  wandb_save_dir: '/vulcanscratch/psando/wandb'
-  dirpath: '/vulcanscratch/psando/poison_ckpts' # path to save checkpoints
+  wandb_save_dir: '/nfshomes/awerner/autoregressive-poisoning/wandb'
+  dirpath: '/nfshomes/awerner/autoregressive-poisoning/poison_ckpts' # path to save checkpoints
 
 train:
   model_name: ResNet18

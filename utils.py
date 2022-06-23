@@ -50,9 +50,9 @@ class AdversarialPoisonWithClean(torch.utils.data.Dataset):
 
 def get_baseset(dataset_name):
     if dataset_name == 'STL10':
-        trainset = datasets.STL10(root='/vulcanscratch/psando/STL', split='train', download=False, transform=transforms.ToTensor())
+        trainset = datasets.STL10(root='/nfshomes/awerner/STL', split='train', download=True, transform=transforms.ToTensor())
     elif dataset_name == 'CIFAR10':
-        trainset = datasets.CIFAR10(root='/vulcanscratch/psando/cifar-10/', train=True, download=False, transform=transforms.ToTensor())
+        trainset = datasets.CIFAR10(root='/nfshomes/awerner/cifar-10/', train=True, download=True, transform=transforms.ToTensor())
     else:
         raise ValueError('Dataset {} not supported'.format(dataset_name))
     return trainset

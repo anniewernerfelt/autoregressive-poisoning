@@ -1,0 +1,5 @@
+[default]
+entity = anniewernerfelt
+project = autoregressive
+base_url = https://api.wandb.ai
+

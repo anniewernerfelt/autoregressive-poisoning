@@ -92,7 +92,7 @@ class LitCIFAR10Model(LightningModule):
         ])
         transform_train = self.configure_transform(transform_train)
         trainset = datasets.CIFAR10(
-            root='/vulcanscratch/psando/cifar-10/', train=True, download=False, transform=transform_train)
+            root='/nfshomes/awerner/cifar-10/', train=True, download=True, transform=transform_train)
         if self.adversarial_poison_path:
             trainset = AdversarialPoison(root=self.adversarial_poison_path, baseset=trainset)
         if self.unlearnable_poison_path:
@@ -107,7 +107,7 @@ class LitCIFAR10Model(LightningModule):
             transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
         ])
         testset = datasets.CIFAR10(
-            root='/vulcanscratch/psando/cifar-10/', train=False, download=False, transform=transform_test)
+            root='/nfshomes/awerner/cifar-10/', train=False, download=True, transform=transform_test)
         testloader = torch.utils.data.DataLoader(testset, batch_size=self.batch_size, shuffle=False, num_workers=self.num_workers)
         return testloader
 
@@ -117,7 +117,7 @@ class LitCIFAR10Model(LightningModule):
             transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
         ])
         testset = datasets.CIFAR10(
-            root='/vulcanscratch/psando/cifar-10/', train=False, download=False, transform=transform_test)
+            root='/nfshomes/awerner/cifar-10/', train=False, download=True, transform=transform_test)
         testloader = torch.utils.data.DataLoader(testset, batch_size=self.batch_size, shuffle=False, num_workers=self.num_workers)
         return testloader
 

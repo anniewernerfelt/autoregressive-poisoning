@@ -1,0 +1,23 @@
+misc:
+  project_name: tmp-project-name
+  run_name: tmp-run-name
+  log_model: false
+  use_auto_scale_batch_size: false
+  enable_progress_bar: false
+  enable_checkpointing: false
+  log_every_n_steps: 50
+  wandb_save_dir: /nfshomes/awerner/autoregressive-poisoning/wandb
+  dirpath: /nfshomes/awerner/autoregressive-poisoning/poison_ckpts
+train:
+  model_name: ResNet18
+  dataset: CIFAR10
+  batch_size: 128
+  epochs: 100
+  num_workers: 16
+  learning_rate: 0.1
+  weight_decay: 0.0005
+  momentum: 0.9
+  adversarial_poison_path: false
+  unlearnable_poison_path: false
+  dataset_path: false
+  augmentations_key: none
